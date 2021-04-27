@@ -1,4 +1,4 @@
-Const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 /*
@@ -7,10 +7,11 @@ const Schema = mongoose.Schema;
 */
 
 const FarmacoSchema = new Schema({
-  drugBankID: String,
-  commonName: String,
+  drug_bank_id: String,
+  common_name: String,
   cas: String,
   unii: String,
+  standard_inchi_key: String
 });
 
 module.exports = mongoose.model('Farmaco', FarmacoSchema);

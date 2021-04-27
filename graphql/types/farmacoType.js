@@ -5,10 +5,11 @@ const { GraphQLObjectType, GraphQLString } = graphql;
 const FarmacoType = new GraphQLObjectType({
   name: 'Farmaco',
   fields: () => ({
-    drugBankID: { type: GraphQLString },
-    commonName: { type: GraphQLString },
+    drug_bank_id: { type: GraphQLString },
+    common_name: { type: GraphQLString },
     cas: { type: GraphQLString },
-    unii: { type: GraphQLString }
+    unii: { type: GraphQLString },
+    standard_inchi_key: { type: GraphQLString }
   })
 });
 
