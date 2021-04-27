@@ -1,0 +1,27 @@
+{
+  "name": "pharma",
+  "version": "0.9.0",
+  "description": "Pharmacopea",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lopezrj/pharma.git"
+  },
+  "author": "lopezrj",
+  "license": "see license in LICENSE",
+  "bugs": {
+    "url": "https://github.com/lopezrj/pharma/issues"
+  },
+  "homepage": "https://github.com/lopezrj/pharma#readme",
+  "dependencies": {
+    "graphql": "^15.5.0",
+    "koa": "^2.13.1",
+    "koa-graphql": "^0.8.0",
+    "koa-mount": "^4.0.0",
+    "mongoose": "^5.12.5"
+  }
+}

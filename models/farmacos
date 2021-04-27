@@ -1,0 +1,16 @@
+Const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+/*
+  notice there is no ID. That's because Mongoose will assign
+  an ID by default to all schemas
+*/
+
+const FarmacoSchema = new Schema({
+  `DrugBank ID`: String,
+  `Common name`: String,
+  CAS: String,
+  UNII: String,
+});
+
+module.exports = mongoose.model('Farmaco', FarmacoSchema);
