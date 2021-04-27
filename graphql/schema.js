@@ -1,12 +1,20 @@
-const { buildSchema } = require('graphql');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString} = require('graphql');
-const gadgetGraphQLType =  require('./gadgetType');
-const Gadget = require('../models/gadget');
+const farmacoGraphQLType =  require('./farmacoType');
+const Farmaco = require('../models/farmaco');
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+const RootQuery = new GraphQLObjectType({
+    name: 'RootQueryType',
+    fields: {
+      farmaco: {
+        type: farmacoGraphQLType,
+        args: { id: { type: GraphQLString }},
+        resolve(parent, args) {
+          return Farmaco.findById(<a href="http://args.id" class="link link-url" target="_blank" rel="external nofollow noopener noreferrer">args.id</a>)
+        }
+      } 
+    }
+  })
 
-module.exports = schema;
+module.exports = new GraphQLSchema({
+    query: RootQuery
+});
