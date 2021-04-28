@@ -1,6 +1,6 @@
 const {GraphQLObjectType} = require('graphql');
 
-const Farmaco = require('../../models/farmaco');
+//const Farmaco = require('../../models/farmaco');
 const queryAllFarmacos = require('./queryAllFarmacos');
 const queryFarmacoById = require('./queryFarmacoById');
 
