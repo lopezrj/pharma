@@ -2,15 +2,18 @@ const express = require('express');
 const router = express.Router();
 const schema = require("../graphql/schema/schema")
 const {graphql} =  require('graphql')
+const initDB = require('../database')
+
 // import schema, { graphql } from "./schema";
 
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const { toJSON } = require('../graphql/types/farmacoType');
 
-const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster1.wby8c.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
-const options = { useNewUrlParser: true, useUnifiedTopology: true }
-mongoose
-.connect(uri, options)
+// const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster1.wby8c.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
+// const options = { useNewUrlParser: true, useUnifiedTopology: true }
+// mongoose
+// .connect(uri, options)
+initDB()
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,3 +26,5 @@ router.get('/', function(req, res, next) {
 })
 
 module.exports = router;
+
+
