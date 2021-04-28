@@ -7,8 +7,8 @@ var stylus = require('stylus');
 
 const graphqlHttp = require("express-graphql")
 
-const graphqlSchema = require("./graphql/schema")
-const graphqlResolvers = require("./graphql/resolvers")
+const graphqlSchema = require("./graphql/schema/schema")
+const graphqlResolvers = require("./graphql/resolvers/rootQuery")
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
