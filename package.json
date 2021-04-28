@@ -4,7 +4,7 @@
   "description": "Pharmacopea",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start server.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/lopezrj/pharma#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.7.1",
     "graphql": "^15.5.0",
-    "koa": "^2.13.1",
-    "koa-graphql": "^0.8.0",
-    "koa-mount": "^4.0.0",
     "mongoose": "^5.12.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

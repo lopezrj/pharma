@@ -1,0 +1,7 @@
+{
+    "env": {
+        "MONGO_USER": "farmauser",
+        "MONGO_PASSWORD": "farmauser",
+        "MONGO_DB": "farmacos"
+    }
+}
