@@ -13,6 +13,9 @@ const graphqlResolvers = require("./graphql/resolvers/rootQuery")
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var farmacosRouter = require('./routes/farmacos');
+const initDB = require('./database');
+
+initDB()
 
 const app = express()
 
