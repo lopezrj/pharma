@@ -6,10 +6,10 @@ html
     else
       title Awesome shop powered by GraphCMS and Snipcart
 
-    block styles
-      link(href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css', rel='stylesheet', type="text/css")
-      link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', type='text/css', rel='stylesheet')
-    block scripts
+    //- block styles
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css', rel='stylesheet', type="text/css")
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', type='text/css', rel='stylesheet')
+    //- block scripts
   body
     .container
       nav.nav.has-shadow
@@ -22,4 +22,5 @@ html
           | View cart (
           span.snipcart-total-items 0
           | )
+      br
       block content

@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  br
+  p
+    a.has-text-weight-bold(href=`/farmacos/${f.id}`)= f.name
+  p Type: 
+    = f.type
+  br
+  p Description: 
+  p= f.description
+  br
+  p Indication:
+  p= f.indication
+  p
+    a(href=`https://wikipedia.org/wiki/${f.name}`) Wikipedia

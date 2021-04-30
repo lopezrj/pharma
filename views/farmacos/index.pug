@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  h1.subtitle= title
+  table.table
+    tr
+      th name
+      th type
+      th drugbank_id
+      th atc_code
+      th wikipedia
+    each f in farmacos
+      tr
+        td
+          a(href=`/farmacos/${f.id}`)= f.name
+        td= f.type
+        td= f.drugbank_id
+        td= f.atc_code
+        td
+          a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
