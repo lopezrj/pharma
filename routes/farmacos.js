@@ -3,22 +3,32 @@ const router = express.Router();
 const schema = require("../graphql/schema/schema")
 const {graphql} =  require('graphql')
 
-// import schema, { graphql } from "./schema";
-
-// const mongoose = require("mongoose");
-const { toJSON } = require('../graphql/types/farmacoType');
+//const { toJSON } = require('../graphql/types/farmacoType');
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let query = `{ queryAllFarmacos { name } }`;
+  let query = `{ queryAllFarmacos { id, name, type, drugbank_id, atc_code } }`;
   graphql(schema, query)
   .then(function (data) {
     //  res.json(data.data["queryAllFarmacos"] );
-      res.render('farmacos', {farmacos: data.data["queryAllFarmacos"], title: 'Farmacos' })
+      res.render('farmacos/index', {farmacos: data.data["queryAllFarmacos"], title: 'Farmacos' })
   })
 })
+
+router.get('/:id', function(req, res, next) {
+  let id = req.params.id
+  console.log(id)
+  let query = `{ queryFarmacoById (id: "${id}")
+     {id, name, type, description, indication} }`;
+  graphql(schema, query)
+  .then(function (data) {
+//     res.json(data );
+    res.render('farmacos/view', {f: data.data["queryFarmacoById"], title: 'Farmacos' })
+  })
+})
+
 
 module.exports = router;
 

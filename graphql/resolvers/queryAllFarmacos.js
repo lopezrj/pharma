@@ -6,6 +6,6 @@ module.exports = {
   type: new GraphQLList(farmacoGraphQLType),
   args: {},
   resolve() {
-    return Farmaco.find({}).limit(20)
+    return Farmaco.find({}).limit(10)
   }
 }

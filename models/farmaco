@@ -9,12 +9,20 @@ const Schema = mongoose.Schema;
 
 const FarmacoSchema = new Schema({
   drugbank_id: String,
+  access_number1: String,
+  access_number2: String,
   type: String,
   name: String,
   cas_number: String,
   unii: String,
   state: String,
   atc_code: String,
+  ahfs_code: String,
+  approved: Boolean,
+  investigational: Boolean,
+  withdrawn: Boolean,
+  description: String,
+  indication: String
 });
 
 module.exports = mongoose.model('Farmaco', FarmacoSchema);
