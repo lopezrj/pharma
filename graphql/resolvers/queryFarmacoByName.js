@@ -4,8 +4,8 @@ const Farmaco = require('../../models/farmaco');
 
 module.exports = {
   type: farmacoGraphQLType,
-  args: { common_name: { type: GraphQLString }},
+  args: { name: { type: GraphQLString }},
   resolve(parent, args) {
-    return Farmaco({common_name: args.common_name})
+    return Farmaco({name: args.name})
   }
 };

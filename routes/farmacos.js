@@ -12,7 +12,7 @@ const { toJSON } = require('../graphql/types/farmacoType');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let query = `{ queryAllFarmacos { common_name } }`;
+  let query = `{ queryAllFarmacos { name } }`;
   graphql(schema, query)
   .then(function (data) {
     //  res.json(data.data["queryAllFarmacos"] );
