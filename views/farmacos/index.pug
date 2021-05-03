@@ -1,20 +1,32 @@
 extends ../layout
 
 block content
-  h1.has-text-weight-bold.is-size-4= title
-  table.table
-    tr
-      th name
-      th type
-      th drugbank_id
-      th atc_code
-      th wikipedia
-    each f in farmacos
+  h5= title
+  table.striped
+    thead
       tr
-        td
-          a(href=`/farmacos/${f.id}`)= f.name
-        td= f.type
-        td= f.drugbank_id
-        td= f.atc_code
-        td
-          a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
+        th name
+        th type
+        th drugbank_id
+        th atc_code
+        th wikipedia
+    tbody
+      each f in farmacos
+        tr
+          td
+            a(href=`/farmacos/${f.id}`)= f.name
+          td= f.type
+          td= f.drugbank_id
+          td= f.atc_code
+          td
+            a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+
