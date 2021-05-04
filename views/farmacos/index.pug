@@ -22,11 +22,13 @@ block content
             a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
   <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    <li class="active"><a href="/farmacos?page=1">1</a></li>
+    <li class="waves-effect"><a href="/farmacos?page=2">2</a></li>
+    <li class="waves-effect"><a href="/farmacos?page=3">3</a></li>
+    <li class="waves-effect"><a href="/farmacos?page=4">4</a></li>
+    <li class="waves-effect"><a href="/farmacos?page=5">5</a></li>
+    <li class="waves-effect"><a href="/farmacos?page=6"><i class="material-icons">chevron_right</i></a></li>
   </ul>
-
+  p= currentPage
+    | de
+  p= totalPages
