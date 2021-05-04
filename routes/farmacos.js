@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
   // get total documents in the Posts collection 
   graphql(schema, `{queryCountFarmacos}`)
     .then(function (data) {
-      count= data.data["queryCountFarmacos"]
-      return count
+      return data.data["queryCountFarmacos"]
     })
     .then(function (count) {
       let totalPages = Math.ceil(count / limit)
