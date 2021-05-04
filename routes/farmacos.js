@@ -8,25 +8,21 @@ const {graphql} =  require('graphql')
 router.get('/', function(req, res, next) {
   const { page = 1, limit = 10 } = req.query;
   let first = (page-1)* limit
-  let count = 0
   // get total documents in the Posts collection 
-  let getcount= () => graphql(schema, `{queryCountFarmacos}`)
+  graphql(schema, `{queryCountFarmacos}`)
     .then(function (data) {
       count= data.data["queryCountFarmacos"]
-      console.log(count)
-    });
-
-  count = getcount()
-  console.log(count)
-
-  let totalPages = Math.ceil(count / limit)
-
-  let query = `{ queryAllFarmacos(first:${first}, limit: ${limit}) { id, name, type, drugbank_id, atc_code }}`;
-  graphql(schema, query)
-  .then(function (data) {
- //   res.json(data.data["queryAllFarmacos"] );
-    res.render('farmacos/index', {farmacos: data.data["queryAllFarmacos"], title: 'Farmacos', totalPages: totalPages , currentPage: page })
-  })
+      return count
+    })
+    .then(function (count) {
+      let totalPages = Math.ceil(count / limit)
+      let query = `{ queryAllFarmacos(first:${first}, limit: ${limit}) { id, name, type, drugbank_id, atc_code }}`;
+      graphql(schema, query)
+      .then(function (data) {
+     //   res.json(data.data["queryAllFarmacos"] );
+        res.render('farmacos/index', {farmacos: data.data["queryAllFarmacos"], title: 'Farmacos', totalPages: totalPages , currentPage: page })
+      })
+    })
 })
 
 router.get('/:id', function(req, res, next) {
