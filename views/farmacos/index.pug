@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   h5= title
-  table.striped
+  table.table.striped
     thead
       tr
         th name
@@ -20,16 +20,12 @@ block content
           td= f.atc_code
           td
             a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
-  <ul id="pagination">
-  </ul>
-  script.
-    $('#pagination').materializePagination({
-        align: 'center',
-        lastPage: #{totalPages},
-        firstPage:  1,
-        urlParameter: 'page',
-        useUrlParameter: true,
-        onClickCallback: function(requestedPage){
-            window.location.href="/farmacos?page="+requestedPage
-        }
-    });
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="/farmacos?page=1">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="farmacos?page=1">1</a></li>
+      <li class="page-item"><a class="page-link" href="farmacos?page=2">2</a></li>
+      <li class="page-item"><a class="page-link" href="farmacos?page=3">3</a></li>
+      <li class="page-item"><a class="page-link" href="farmacos?page=1">Next</a></li>
+    </ul>
+  </nav>
