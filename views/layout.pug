@@ -13,17 +13,17 @@ html
 
     //- block styles
     //- FONT
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', type='text/css', rel='stylesheet')
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css">
 
     //- CSS
     //- link(href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css', rel='stylesheet', type="text/css")
-    link(href="/stylesheets/bootstrap.min.css", type='text/css', rel='stylesheet')
+    link(href="/bootstrap/css/bootstrap.min.css", type='text/css', rel='stylesheet')
 
     //- Favicon
     link(rel="icon" type="image/png" href="images/favicon.png")
 
     //- block scripts
-    script(defer src="/js/bootstrap.bundle.min.js")
+    script(defer src="/bootstrap/js/bootstrap.bundle.min.js")
     <script src="/js/materialize-pagination.js"></script>
 
   body
@@ -31,7 +31,7 @@ html
       nav.navbar.navbar-expand-lg.navbar-light.bg-light
         div.container-fluid
           a.navbar-brand(href="/")
-            <i class="fas fa-pills"> &nbsp;Farmacos</i>
+            <i class="bi-alarm" style="font-size: 1.5rem; color: blue;"></i> Farmacos
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
