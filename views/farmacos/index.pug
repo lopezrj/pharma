@@ -20,12 +20,19 @@ block content
           td= f.atc_code
           td
             a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="/farmacos?page=1">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="farmacos?page=1">1</a></li>
-      <li class="page-item"><a class="page-link" href="farmacos?page=2">2</a></li>
-      <li class="page-item"><a class="page-link" href="farmacos?page=3">3</a></li>
-      <li class="page-item"><a class="page-link" href="farmacos?page=1">Next</a></li>
-    </ul>
-  </nav>
+  if totalPages > 0        
+    nav(aria-label="Page navigation example")
+      ul.pagination.text-center
+        if (currentPage == 1)
+          li.page-item.disabled
+            a.page-link(href=`/farmacos?page=1`) Previous
+        else
+          li.page-item
+            a.page-link(href=`/farmacos?page=${currentPage-1}`) Previous
+        if (currentPage == totalPages )
+          li.page-item.disabled
+            a.page-link(href="#") Next
+        else
+          li.page-item
+            a.page-link(href=`/farmacos?page=${Number(currentPage) + 1}`) Next
+
