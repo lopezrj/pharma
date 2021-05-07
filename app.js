@@ -34,6 +34,12 @@ app.use("/bootstrap", express.static(path.join(__dirname, '/node_modules/bootstr
 app.use("/bootstrap-icons", express.static(path.join(__dirname, '/node_modules/bootstrap-icons')));
 
 
+const paginate = require('express-paginate');
+
+// keep this before all routes that will use pagination
+app.use(paginate.middleware(10, 50));
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/farmacos', farmacosRouter);
