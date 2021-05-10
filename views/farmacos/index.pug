@@ -20,38 +20,38 @@ block content
           td= f.atc_code
           td
             a(href=`https://wikipedia.org/wiki/${f.name}`)= f.name
-  if totalPages > 0        
-    nav(aria-label="Page navigation example")
-      ul.pagination.text-center
-        if (currentPage == 1)
-          li.page-item.disabled
-            a.page-link(href=`/farmacos?page=1`) Previous
-        else
-          li.page-item
-            a.page-link(href=`/farmacos?page=${currentPage-1}`) Previous
-        if (currentPage == totalPages )
-          li.page-item.disabled
-            a.page-link(href="#") Next
-        else
-          li.page-item
-            a.page-link(href=`/farmacos?page=${Number(currentPage) + 1}`) Next
-    
-    p= paginate
+ 
+  nav(aria-label="Page navigation example")
+    ul#paginationList.pagination.justify-content-center
 
-    script. 
-      if paginate.hasPreviousPages || paginate.hasNextPages(pageCount)
-      .navigation.well-sm#pagination
-        ul.pager
-          if paginate.hasPreviousPages
-            li.previous
-              a(href=paginate.href(true)).prev
-                i.fa.fa-arrow-circle-left
-                |  Previous
-          if pages
-            each page in pages
-              a.btn.btn-default(href=page.url)= page.number
-          if paginate.hasNextPages(pageCount)
-            li.next
-              a(href=paginate.href()).next
-                | Next&nbsp;
-                i.fa.fa-arrow-circle-right
+  script.
+    var paginationUl = document.getElementById("paginationList"); 
+    if (#{currentPage} > 7) {
+      createli(#{currentPage}-7,"Previous")
+    }
+    let first = (#{currentPage} <7 )? 0 : #{currentPage}-6
+    let last = #{currentPage}+5
+    for (i = first; i < last; i++) {
+      createli(i, i+1)
+    }
+    createli(#{currentPage}+5,"Next")
+
+    function createli(i, label) {
+      
+      var li = document.createElement('li');
+      li.classname = "page-item"
+      if (i == #{currentPage}-1) {
+        li.className= "page-item active"
+      } else {
+        li.className= "page-item"
+      }
+      var ref = document.createElement('a')
+      ref.className = "page-link"
+      ref.href="/farmacos?page="+String(i+1)
+      var textnode = document.createTextNode(label); 
+      ref.appendChild(textnode);
+
+      li.appendChild(ref);
+      paginationUl.appendChild(li);
+    }
+    
