@@ -5,8 +5,8 @@ const {graphql} =  require('graphql')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let page = req.query.page || 1
-  const { limit = 20 } = req.query;
+  let page = req.query.page  || "1"
+  let limit = req.query.limit  || "20"
   let first = (page-1)* limit
   
   // get total documents in the Posts collection 
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   .then(function (data) {
     let countDocuments = data.data["queryCountFarmacos"]
     let totalPages = Math.ceil(countDocuments / limit)
-//    res.json(data.data );
+  //  res.json(data.data );
     res.render('farmacos/index', {farmacos: data.data["queryPageFarmacos"], title: 'Farmacos', totalPages: totalPages , currentPage: page })
   })
 })
